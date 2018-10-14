@@ -13,6 +13,9 @@
     <?php $page_current = 'members'; ?>
 
     <?php include('layout/main_layout.php'); ?><!-- Layout Start -->
+
+      <?php include('sql/sql_addmember.php'); ?><!-- SQL -->
+
       <!--Main Contents STARTS HERE -->
       <form class="form_main border-bottom shadow-sm p-3 bg-white rounded" method="post">
         <div class="form-row col-md-11 mx-auto">
