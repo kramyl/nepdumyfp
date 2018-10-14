@@ -1,0 +1,50 @@
+.sidebar{
+  width: 250px;
+  float: left;
+  display: block;
+  position: relative;
+}
+
+.sidebar_button, .sidebar_subbutton{
+  width: 100%;
+  height: auto;
+  text-align: left;
+  color: #343a40;
+}
+
+.sidebar_button{
+  padding: 5px 15px;
+}
+
+.sidebar_list_footer{
+  height: 5px;
+}
+
+.sidebar_subbutton{
+  background-color:  #f9f9f9;
+}
+.sidebar_list , .sidebar_sublist{
+  padding: 0;
+}
+
+.sidebar_button_text{
+  padding-top: 10px;
+  margin-right: 0;
+}
+.sidebar_subbutton_text{
+  margin-left: 20px;
+}
+
+.dropdown-toggle::after {
+    display:none;
+}
+
+.sidebar_subbutton:hover{
+  background-color:  #f26a6a;
+  color: #fefefe;
+}
+
+.activestate{
+  background-color: #54c957;
+  color: white;
+}
