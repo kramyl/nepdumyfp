@@ -38,18 +38,35 @@
                     <th scope="col">#</th>
                     <th scope="col">Username</th>
                     <th scope="col">Full Name</th>
-                    <th scope="col">Church</th>
+                    <th scope="col">Local Church</th>
                     <th scope="col">Controls</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>kramyl</td>
-                    <td>Raymark Chan Bornales</td>
-                    <td>None</td>
-                    <td></td>
-                  </tr>
+                  <?php include('sql/sql_viewuser.php');?><!-- SQL -->
+                  <?php
+                    if (mysqli_num_rows($result) > 0) {
+                        // output data of each row
+                        while($row = mysqli_fetch_assoc($result)) {
+                          ?>
+                          <tr>
+                            <td>#</td>
+                            <td><?=$row['user_UserName'] ?></td>
+                            <td><?=$row['user_LastName'] . ", " . $row['user_FirstName'] . " " . $row['user_MiddleName'] . ", " . $row['user_Suffix']  ?></td>
+                            <td><?= DisplayChurchLocalName($row['church_ID']);?></td>
+                            <td></td>
+                          </tr>
+                          <?php
+                        }
+                    } else {
+                        ?>
+                        <tr>
+                          <td class="table-active" colspan="5"><h5 style="text-align: center;">No data Available</h5></td>
+                        </tr>
+                        <?php
+                    }
+                    mysqli_close($conn);
+                  ?>
                 </tbody>
               </table>
             </div>

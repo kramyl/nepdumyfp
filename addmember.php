@@ -125,8 +125,6 @@
           <div class="form-group col-md-4">
             <label for="form_Church">Chruch</label>
 
-            <?php $pageType="addmember"; include('sql/sql_loadchurches.php'); ?><!-- SQL -->
-
             <select id="form_Church" class="form-control" name="form_Church" <?=$isChurchEmpty ?> >
               <?php
                 if (mysqli_num_rows($result) > 0 && $isChurchEmpty == "") {

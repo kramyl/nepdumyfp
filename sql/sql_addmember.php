@@ -1,4 +1,7 @@
 <?php
+$pageType="addmember";
+include('sql/sql_loadchurches.php');
+
 include('sql_connection.php');
 
 if (isset($_POST['save'])) {
