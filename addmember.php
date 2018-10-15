@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Add Member</title>
+    <title>NEPDUMYFP</title>
     <?php include('layout/head.php'); ?>
   </head>
   <body>

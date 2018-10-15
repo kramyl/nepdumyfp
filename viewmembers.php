@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>View Members</title>
+    <title>NEPDUMYFP</title>
     <?php include('layout/head.php'); ?>
   </head>
   <body>
@@ -39,19 +39,42 @@
                     <th scope="col">Full Name</th>
                     <th scope="col">Address</th>
                     <th scope="col">Email Address</th>
+                    <th scope="col">Contact No.</th>
                     <th scope="col">Church</th>
                     <th scope="col">Controls</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Raymark Chan Bornales</td>
-                    <td>Poz</td>
-                    <td>kramyl333@gmail.com</td>
-                    <td>None</td>
-                    <td></td>
-                  </tr>
+                  <?php include('sql/sql_viewmembers.php');?><!-- SQL -->
+                  <?php
+                    if (mysqli_num_rows($result) > 0) {
+                        // output data of each row
+                        while($row = mysqli_fetch_assoc($result)) {
+                          $member_Suffix = "";
+                          if ($row['member_Suffix'] != "") {
+                            $member_Suffix = ", " . $row['member_Suffix'];
+                          }
+                          ?>
+                          <tr>
+                            <td>#</td>
+                            <td><?=$row['member_LastName'] . ", " . $row['member_FirstName'] . " " . $row['member_MiddleName'] . $member_Suffix ?></td>
+                            <td><?=$row['member_HouseNo'] . " " . $row['member_Street'] . ", " . $row['member_Barangay'] . " " . $row['member_Town'] . ", " . $row['member_Province']  ?></td>
+                            <td><?=$row['member_EmailAddress'] ?></td>
+                            <td><?=$row['member_ContactNo'] ?></td>
+                            <td><?= DisplayChurchLocalName($row['church_ID']);?></td>
+                            <td></td>
+                          </tr>
+                          <?php
+                        }
+                    } else {
+                        ?>
+                        <tr>
+                          <td class="table-active" colspan="5"><h5 style="text-align: center;">No data Available</h5></td>
+                        </tr>
+                        <?php
+                    }
+                    mysqli_close($conn);
+                  ?>
                 </tbody>
               </table>
             </div>

@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>View Churches</title>
+    <title>NEPDUMYFP</title>
     <?php include('layout/head.php'); ?>
   </head>
   <body>
@@ -36,18 +36,35 @@
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Church Name</th>
+                    <th scope="col">Church Local Name</th>
                     <th scope="col">Full Address</th>
                     <th scope="col">Controls</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>kramyl</td>
-                    <td>Raymark Chan Bornales</td>
-                    <td>None</td>
-                  </tr>
+                  <?php include('sql/sql_viewchurches.php');?><!-- SQL -->
+                  <?php
+                    if (mysqli_num_rows($result) > 0) {
+                        // output data of each row
+                        while($row = mysqli_fetch_assoc($result)) {
+                          ?>
+                          <tr>
+                            <td>#</td>
+                            <td><?=$row['church_LocalName'] ?></td>
+                            <td><?=$row['church_Street'] . ", " . $row['church_Barangay'] . " " . $row['church_Town'] . " " .  $row['church_ZipCode']  . ", " . $row['church_Province']  ?></td>
+                            <td></td>
+                          </tr>
+                          <?php
+                        }
+                    } else {
+                        ?>
+                        <tr>
+                          <td class="table-active" colspan="5"><h5 style="text-align: center;">No data Available</h5></td>
+                        </tr>
+                        <?php
+                    }
+                    mysqli_close($conn);
+                  ?>
                 </tbody>
               </table>
             </div>

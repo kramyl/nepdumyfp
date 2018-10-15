@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>View Users</title>
+    <title>NEPDUMYFP</title>
     <?php include('layout/head.php'); ?>
   </head>
   <body>
@@ -43,16 +43,20 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <?php include('sql/sql_viewuser.php');?><!-- SQL -->
+                  <?php include('sql/sql_viewusers.php');?><!-- SQL -->
                   <?php
                     if (mysqli_num_rows($result) > 0) {
                         // output data of each row
                         while($row = mysqli_fetch_assoc($result)) {
+                          $user_Suffix = "";
+                          if ($row['user_Suffix'] != "") {
+                            $user_Suffix = ", " . $row['user_Suffix'];
+                          }
                           ?>
                           <tr>
                             <td>#</td>
                             <td><?=$row['user_UserName'] ?></td>
-                            <td><?=$row['user_LastName'] . ", " . $row['user_FirstName'] . " " . $row['user_MiddleName'] . ", " . $row['user_Suffix']  ?></td>
+                            <td><?=$row['user_LastName'] . ", " . $row['user_FirstName'] . " " . $row['user_MiddleName'] . $user_Suffix ?></td>
                             <td><?= DisplayChurchLocalName($row['church_ID']);?></td>
                             <td></td>
                           </tr>
