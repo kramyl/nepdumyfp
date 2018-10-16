@@ -14,17 +14,21 @@
 
     <?php include('layout/main_layout.php'); ?><!-- Layout Start -->
       <!--Main Contents STARTS HERE -->
-      <form class="form_main border-bottom" action="index.html" method="post">
+      <form class="form_main border-bottom" method="post">
+
+        <?php include('sql/sql_viewusers.php');?><!-- SQL -->
+
         <div class="form-row col-md-12 mx-auto">
           <div class="form-group col-md-12">
             <br>
           </div>
           <div class="form-group col-md-5">
             <label for="form_Search">Search : </label>
+            <br>
             <div class="btn-group" role="group" aria-label="Basic example">
-              <input type="text" class="form-control" name="form_Search" id="form_Search" placeholder="Search...">
-              <button type="button" class="btn btn-light border"> <i class="fas fa-search"></i> Search</button>
-              <button type="button" class="btn btn-light border">Clear</button>
+              <input type="text" class="form-control" name="form_Search" value="<?php if (isset($form_search)) { echo $form_search;} ?>" id="form_Search" placeholder="Search...">
+              <button type="submit" class="btn btn-light border" name="button_Search"> <i class="fas fa-search"></i> Search</button>
+              <button type="submit" class="btn Color_Red border" name="button_Clear">Clear</button>
             </div>
           </div>
           <div class="form-group col-md-12">
@@ -42,19 +46,20 @@
                     <th scope="col">Controls</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <?php include('sql/sql_viewusers.php');?><!-- SQL -->
+                <tbody class="border-bottom">
                   <?php
                     if (mysqli_num_rows($result) > 0) {
                         // output data of each row
+                        $record_Number = 0;
                         while($row = mysqli_fetch_assoc($result)) {
                           $user_Suffix = "";
                           if ($row['user_Suffix'] != "") {
                             $user_Suffix = ", " . $row['user_Suffix'];
                           }
+                          $record_Number++;
                           ?>
                           <tr>
-                            <td>#</td>
+                            <td><?=$record_Number ?></td>
                             <td><?=$row['user_UserName'] ?></td>
                             <td><?=$row['user_LastName'] . ", " . $row['user_FirstName'] . " " . $row['user_MiddleName'] . $user_Suffix ?></td>
                             <td><?= DisplayChurchLocalName($row['church_ID']);?></td>

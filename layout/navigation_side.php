@@ -16,7 +16,7 @@
 
     <?php $activestate_churches = ""; if ($page_current == "churches") { $activestate_churches = "activestate"; } ?>
     <li class="list-group-item sidebar_list <?=$activestate_churches ?>">
-      <div aria-expanded="false" class="sidebar_button <?=$activestate_churches ?>"><h4 class="sidebar_button_text "><i class="fas fa-users"></i> Churches <i class="fas fa-angle-right float-right"></i></span></h4></div>
+      <div aria-expanded="false" class="sidebar_button <?=$activestate_churches ?>"><h4 class="sidebar_button_text "><i class="fas fa-church"></i> Churches <i class="fas fa-angle-right float-right"></i></span></h4></div>
     </li>
     <li class="list-group-item sidebar_sublist">
       <a href="addchurch.php" class="btn sidebar_subbutton"><h6 class="sidebar_subbutton_text"><i class="fas fa-plus"></i> Add Church</h6></a>

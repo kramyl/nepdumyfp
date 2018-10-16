@@ -17,11 +17,11 @@
       $isChurchEmpty = "disabled";
     }
     mysqli_close($conn);
+  }else {
+    include('sql_connection.php');
+    $sql = "SELECT * FROM `churches`";
+    $result = mysqli_query($conn, $sql);
   }
-
-  include('sql_connection.php');
-  $sql = "SELECT * FROM `churches`";
-  $result = mysqli_query($conn, $sql);
 
   function CheckIfAccountExistAtChurch($church_ID){
     include('sql_connection.php');
