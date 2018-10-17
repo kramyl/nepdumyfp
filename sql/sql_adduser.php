@@ -1,10 +1,8 @@
 <?php
-  $pageType="adduser";
-include('sql/sql_loadchurches.php');
 
-include('sql_connection.php');
 
 if (isset($_POST['save'])) {
+  include('sql_connection.php');
   $form_Username = $_POST['form_Username'];
   $form_Password = $_POST['form_Password'];
   $form_FirstName = $_POST['form_FirstName'];

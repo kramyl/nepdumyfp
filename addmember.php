@@ -32,19 +32,19 @@
           </div>
           <div class="form-group col-md-4">
             <label for="form_FirstName">First Name </label>
-            <input type="text" class="form-control" id="form_FirstName" name="form_FirstName" placeholder="First Name">
+            <input type="text" class="form-control" id="form_FirstName" name="form_FirstName" placeholder="First Name" data-sanitize="capitalize" data-validation="required custom" data-validation-regexp="^([a-zA-Z ]+)$" data-validation-error-msg-custom="This field contains characters and spaces only.">
           </div>
           <div class="form-group col-md-3">
             <label for="form_MiddleName">Middle Name </label>
-            <input type="text" class="form-control" id="form_MiddleName" name="form_MiddleName" placeholder="Middle Name">
+            <input type="text" class="form-control" id="form_MiddleName" name="form_MiddleName" placeholder="Middle Name" data-sanitize="capitalize" data-validation="custom" data-validation-regexp="^([a-zA-Z. ]+){0,}$" data-validation-error-msg-custom="This field contains characters, dot and spaces only.">
           </div>
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-3">
             <label for="form_LastName">Last Name </label>
-            <input type="text" class="form-control" id="form_LastName" name="form_LastName" placeholder="Last Name">
+            <input type="text" class="form-control" id="form_LastName" name="form_LastName" placeholder="Last Name" data-sanitize="capitalize" data-validation="required custom" data-validation-regexp="^([a-zA-Z ]+)$" data-validation-error-msg-custom="This field contains characters and spaces only.">
           </div>
-          <div class="form-group col-md-1">
+          <div class="form-group col-md-2">
             <label for="form_Suffix">Suffix </label>
-            <input type="text" class="form-control" id="form_Suffix" name="form_Suffix" placeholder="ex: Jr/Sr">
+            <input type="text" class="form-control" id="form_Suffix" name="form_Suffix" placeholder="ex: Jr/Sr" data-sanitize="capitalize" data-validation="custom" data-validation-regexp="^([a-zA-Z0-9. ]+){0,}$" data-validation-error-msg-custom="This field contains alphanumeric, dot and spaces only.">
           </div>
           <div class="form-group col-md-12" style="margin-bottom: 0;">
             <hr>
@@ -52,19 +52,19 @@
 
           <div class="form-group col-md-2">
             <label for="form_Gender">Gender</label>
-            <select id="form_Gender" name="form_Gender" class="form-control">
-              <option value="None">Select Gender</option>
+            <select id="form_Gender" name="form_Gender" class="form-control" data-validation="required">
+              <option value="">Select Gender</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
             </select>
           </div>
           <div class="form-group col-md-2">
             <label for="form_Birthday">Birthday</label>
-            <input type="date" class="form-control" id="form_Birthday" name="form_Birthday" placeholder="">
+            <input type="date" class="form-control" id="form_Birthday" name="form_Birthday" placeholder="" data-validation="required">
           </div>
           <div class="form-group col-md-1">
             <label for="form_Age">Age</label>
-            <input type="number" class="form-control" id="form_Age" name="form_Age" placeholder="0">
+            <input type="text" class="form-control" id="form_Age" name="form_Age" placeholder="0" data-validation="required number"  data-validation-error-msg-number="This field contains numbers only.">
             <!--
             <select id="form_Age" name="form_Age" class="form-control">
               <?php
@@ -84,23 +84,23 @@
           </div>
           <div class="form-group col-md-1">
             <label for="form_HouseNo">House No.</label>
-            <input type="text" class="form-control" id="form_HouseNo" name="form_HouseNo" placeholder="ex: #10">
+            <input type="text" class="form-control" id="form_HouseNo" name="form_HouseNo" placeholder="ex: #10" data-validation="required custom" data-validation-regexp="^([0-9#]+)$" data-validation-error-msg-custom="This field contains numbers and # only.">
           </div>
           <div class="form-group col-md-2">
             <label for="form_Street">Street</label>
-            <input type="text" class="form-control" id="form_Street" name="form_Street" placeholder="ex: Belmonte Street">
+            <input type="text" class="form-control" id="form_Street" name="form_Street" placeholder="ex: Belmonte Street" data-sanitize="capitalize" data-validation="required custom" data-validation-regexp="^([a-zA-Z .]+)$" data-validation-error-msg-custom="This field contains characters, dot and spaces only.">
           </div>
           <div class="form-group col-md-3">
             <label for="form_Barangay">Barangay/Poblacion</label>
-            <input type="text" class="form-control" id="form_Barangay" name="form_Barangay" placeholder="ex: Zone 1/District 2">
+            <input type="text" class="form-control" id="form_Barangay" name="form_Barangay" placeholder="ex: Zone 1/District 1" data-sanitize="capitalize" data-validation="required custom" data-validation-regexp="^([a-zA-Z0-9 .]+)$" data-validation-error-msg-custom="This field contains alphanumeric, dot and spaces only.">
           </div>
           <div class="form-group col-md-3">
             <label for="form_Town">Town/City</label>
-            <input type="text" class="form-control" id="form_Town" name="form_Town" placeholder="ex: Urdaneta City">
+            <input type="text" class="form-control" id="form_Town" name="form_Town" placeholder="ex: Urdaneta City" data-sanitize="capitalize" data-validation="required custom" data-validation-regexp="^([a-zA-Z0-9 .]+)$" data-validation-error-msg-custom="This field contains alphanumeric, dot and spaces only.">
           </div>
           <div class="form-group col-md-3">
             <label for="form_Province">Province</label>
-            <input type="text" class="form-control" id="form_Province" name="form_Province" placeholder="ex: Pangasinan">
+            <input type="text" class="form-control" id="form_Province" name="form_Province" placeholder="ex: Pangasinan" data-sanitize="capitalize" data-validation="custom" data-validation-regexp="^([a-zA-Z0-9 .]+){0,}$" data-validation-error-msg-custom="This field contains alphanumeric, dot and spaces only.">
           </div>
           <div class="form-group col-md-12" style="margin-bottom: 0;">
             <hr>
@@ -108,11 +108,11 @@
 
           <div class="form-group col-md-4">
             <label for="form_ContactNumber">Contact Number </label>
-            <input type="text" class="form-control" id="form_ContactNumber" name="form_ContactNumber" placeholder="ex: 9123456789">
+            <input type="text" class="form-control" id="form_ContactNumber" name="form_ContactNumber" placeholder="ex: 9123456789" data-validation="number length" data-validation-error-msg-number="This field contains numbers only." data-validation-length="min10" data-validation-error-msg-length="This field contains 10 characters.">
           </div>
           <div class="form-group col-md-4">
             <label for="form_EmailAddress">Email Address </label>
-            <input type="email" class="form-control" id="form_EmailAddress" name="form_EmailAddress" placeholder="Email Address">
+            <input type="email" class="form-control" id="form_EmailAddress" name="form_EmailAddress" placeholder="Email Address" data-validation="email">
           </div>
           <div class="form-group col-md-4">
             <label for="form_FinishedConfirmationClass">Finished Confirmation Class</label>
@@ -160,4 +160,7 @@
     <?php include('layout/naviagation_mainbarend.php'); ?><!-- Layout End -->
 
   </body>
+  <footer>
+    <?php include('layout/foot.php'); ?>
+  </footer>
 </html>

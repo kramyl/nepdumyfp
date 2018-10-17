@@ -28,7 +28,7 @@
           </div>
           <div class="form-group col-md-4">
             <label for="form_ChurchName">Church Local Name</label>
-            <input type="text" class="form-control" id="form_ChurchName" name="form_ChurchName" placeholder="ex: Urdaneta">
+            <input type="text" class="form-control" id="form_ChurchName" name="form_ChurchName" placeholder="ex: Urdaneta" data-sanitize="capitalize" data-validation="required custom" data-validation-regexp="^([a-zA-Z ]+)$" data-validation-error-msg-custom="This field contains characters and spaces only.">
           </div>
           <div class="form-group col-md-12">
             <br>
@@ -43,23 +43,23 @@
           </div>-->
           <div class="form-group col-md-2">
             <label for="form_Street">Street</label>
-            <input type="text" class="form-control" id="form_Street" name="form_Street" placeholder="ex: Belmonte Street">
+            <input type="text" class="form-control" id="form_Street" name="form_Street" placeholder="ex: Belmonte Street" data-sanitize="capitalize" data-validation="required custom" data-validation-regexp="^([a-zA-Z .]+)$" data-validation-error-msg-custom="This field contains characters, dot and spaces only.">
           </div>
           <div class="form-group col-md-2">
             <label for="form_Barangay">Barangay/Poblacion</label>
-            <input type="text" class="form-control" id="form_Barangay" name="form_Barangay" placeholder="ex: Zone 1/District 1">
+            <input type="text" class="form-control" id="form_Barangay" name="form_Barangay" placeholder="ex: Zone 1/District 1" data-sanitize="capitalize" data-validation="required custom" data-validation-regexp="^([a-zA-Z0-9 .]+)$" data-validation-error-msg-custom="This field contains alphanumeric, dot and spaces only.">
           </div>
           <div class="form-group col-md-3">
             <label for="form_Town">Town/City</label>
-            <input type="text" class="form-control" id="form_Town" name="form_Town" placeholder="ex: Urdaneta City">
+            <input type="text" class="form-control" id="form_Town" name="form_Town" placeholder="ex: Urdaneta City" data-sanitize="capitalize" data-validation="required custom" data-validation-regexp="^([a-zA-Z0-9 .]+)$" data-validation-error-msg-custom="This field contains alphanumeric, dot and spaces only.">
           </div>
           <div class="form-group col-md-3">
             <label for="form_Province">Province</label>
-            <input type="text" class="form-control" id="form_Province" name="form_Province" placeholder="ex: Pangasinan">
+            <input type="text" class="form-control" id="form_Province" name="form_Province" placeholder="ex: Pangasinan" data-sanitize="capitalize" data-validation="custom" data-validation-regexp="^([a-zA-Z0-9 .]+){0,}$" data-validation-error-msg-custom="This field contains alphanumeric, dot and spaces only.">
           </div>
           <div class="form-group col-md-2">
             <label for="form_ZipCode">Zip Code</label>
-            <input type="text" class="form-control" id="form_ZipCode" name="form_ZipCode" placeholder="ex: 2435">
+            <input type="text" class="form-control" id="form_ZipCode" name="form_ZipCode" placeholder="ex: 2435" data-validation="number" data-validation-error-msg-number="This field contains numbers only.">
           </div>
           <div class="form-group col-md-12" style="margin-bottom: 0;">
             <hr>
@@ -79,4 +79,7 @@
     <?php include('layout/naviagation_mainbarend.php'); ?><!-- Layout End -->
 
   </body>
+  <footer>
+    <?php include('layout/foot.php'); ?>
+  </footer>
 </html>

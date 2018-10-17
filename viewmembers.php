@@ -51,9 +51,9 @@
             <label for="form_Search">Search : </label>
             <br>
             <div class="btn-group" role="group" aria-label="Basic example">
-              <input type="text" class="form-control" name="form_Search" value="<?php if (isset($form_search)) { echo $form_search;} ?>" id="form_Search" placeholder="Search...">
+              <input type="text" class="form-control" name="form_Search" value="<?php if (isset($form_search)) { echo $form_search;} ?>" id="form_Search" placeholder="Search by Name...">
               <button type="submit" class="btn btn-light border" name="button_Search"> <i class="fas fa-search"></i> Search</button>
-              <button type="submit" class="btn Color_Red border" name="button_Clear">Clear</button>
+              <button type="submit" class="btn Color_Red border" name="button_Clear">Clear Searched</button>
             </div>
           </div>
           <div class="form-group col-md-12">

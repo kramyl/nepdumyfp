@@ -28,17 +28,17 @@
           </div>
           <div class="form-group col-md-4">
             <label for="form_Username">Username </label>
-            <input type="text" class="form-control" id="form_Username" name="form_Username" placeholder="Username">
+            <input type="text" class="form-control" id="form_Username" name="form_Username" placeholder="Username" data-validation="required length server" data-validation-url="sql/sql_searchusername.php" data-validation-length="5-26"  data-validation-error-msg-length="The username value must between 5-26 characters.">
           </div>
           <div class="form-group col-md-8">
           </div>
           <div class="form-group col-md-4">
             <label for="form_Password">Password </label>
-            <input type="password" class="form-control" id="form_Password" name="form_Password" placeholder="Password">
+            <input type="password" class="form-control" id="form_Password" name="form_Password" placeholder="Password" data-validation="required length" data-validation-length="min6"  data-validation-error-msg-length="The password must contain atleast 6 characters.">
           </div>
           <div class="form-group col-sm-4">
             <label for="form_Retype_Password">Re-Type Password </label>
-            <input type="password" class="form-control" id="form_Retype_Password" name="form_Retype_Password" placeholder="Re-Type Password">
+            <input type="password" class="form-control" id="form_Retype_Password" name="form_Retype_Password" placeholder="Re-Type Password" data-validation="confirmation" data-validation-confirm="form_Password" data-validation-error-msg="The password does not match.">
           </div>
           <div class="form-group col-md-12">
             <br>
@@ -53,19 +53,19 @@
           </div>
           <div class="form-group col-md-4">
             <label for="form_FirstName">First Name </label>
-            <input type="text" class="form-control" id="form_FirstName" name="form_FirstName" placeholder="First Name">
+            <input type="text" class="form-control" id="form_FirstName" name="form_FirstName" placeholder="First Name" data-sanitize="capitalize" data-validation="required custom" data-validation-regexp="^([a-zA-Z ]+)$" data-validation-error-msg-custom="This field contains characters and spaces only.">
           </div>
           <div class="form-group col-md-3">
             <label for="form_MiddleName">Middle Name </label>
-            <input type="text" class="form-control" id="form_MiddleName" name="form_MiddleName" placeholder="Middle Name">
+            <input type="text" class="form-control" id="form_MiddleName" name="form_MiddleName" placeholder="Middle Name" data-sanitize="capitalize" data-validation="custom" data-validation-regexp="^([a-zA-Z. ]+){0,}$" data-validation-error-msg-custom="This field contains characters, dot and spaces only.">
           </div>
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-3">
             <label for="form_LastName">Last Name </label>
-            <input type="text" class="form-control" id="form_LastName" name="form_LastName" placeholder="Last Name">
+            <input type="text" class="form-control" id="form_LastName" name="form_LastName" placeholder="Last Name" data-sanitize="capitalize" data-validation="required custom" data-validation-regexp="^([a-zA-Z ]+)$" data-validation-error-msg-custom="This field contains characters and spaces only.">
           </div>
-          <div class="form-group col-md-1">
+          <div class="form-group col-md-2">
             <label for="form_Suffix">Suffix </label>
-            <input type="text" class="form-control" id="form_Suffix" name="form_Suffix" placeholder="ex: Jr/Sr">
+            <input type="text" class="form-control" id="form_Suffix" name="form_Suffix" placeholder="ex: Jr/Sr" data-sanitize="capitalize" data-validation="custom" data-validation-regexp="^([a-zA-Z0-9. ]+){0,}$" data-validation-error-msg-custom="This field contains alphanumeric, dot and spaces only.">
           </div>
           <div class="form-group col-md-12" style="margin-bottom: 0;">
             <hr>
@@ -73,20 +73,24 @@
           <div class="form-group col-md-4">
             <label for="form_Church">Chruch</label>
 
-            <select id="form_Church" class="form-control" name="form_Church" <?=$isChurchEmpty ?> >
+            <?php $pageType="adduser"; include('sql/sql_loadchurches.php'); ?>
+
+            <select id="form_Church" class="form-control" name="form_Church" <?=CheckIfLocalChurchAvailable(); ?> >
               <?php
-                if (mysqli_num_rows($result) > 0 && $isChurchEmpty == "") {
+                if (mysqli_num_rows($result) > 0  && CheckIfLocalChurchAvailable() == "") {
                     // output data of each row
                     ?>
                     <option selected>Select Church</option>
                     <?php
                     while($row = mysqli_fetch_assoc($result)) {
+
                       if (CheckIfAccountExistAtChurch($row['church_ID']) == 0) {
                         ?>
                         <option value="<?= $row['church_ID']?>"><?= $row['church_LocalName']?></option>
                         <?php
                       }
                     }
+
                 } else {
                     ?>
                     <option selected>No Church Available</option>
@@ -100,7 +104,7 @@
             <br>
           </div>
           <div class="form-group col-md-3 mx-auto">
-            <button type="submit" class="btn Color_Green" name="save" <?=$isChurchEmpty ?>><i class="far fa-save"></i> Save User</button>
+            <button type="submit" class="btn Color_Green" name="save" <?=CheckIfLocalChurchAvailable(); ?>><i class="far fa-save"></i> Save User</button>
             <button type="reset" class="btn Color_Red" ><i class="fas fa-redo-alt"></i> Reset</button>
           </div>
           <div class="form-group col-md-12">
@@ -111,4 +115,7 @@
     <?php include('layout/naviagation_mainbarend.php'); ?><!-- Layout End -->
 
   </body>
+  <footer>
+    <?php include('layout/foot.php'); ?>
+  </footer>
 </html>
