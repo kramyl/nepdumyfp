@@ -26,6 +26,10 @@
           <?php if (mysqli_num_rows($result) > 0) {
 
               while($row = mysqli_fetch_assoc($result)) {
+                $member_Suffix = "";
+                if ($row['member_Suffix'] != "") {
+                  $member_Suffix = ", " . $row['member_Suffix'];
+                }
             ?>
               <div class="form-group col-md-12">
                 <h5>Member Information</h5>
@@ -125,7 +129,7 @@
                 <hr>
               </div>
               <div class="form-group col-md-3 mx-auto">
-                <a href="/viewmembers.php" class="btn Color_Red" name="save">Back</a>
+                <a href="/viewmembers.php" class="btn Color_Red" name="save"><i class="fas fa-arrow-left"></i> Back</a>
               </div>
               <div class="form-group col-md-12">
                 <br>

@@ -40,11 +40,11 @@
 }
 
 .sidebar_subbutton:hover{
-  background-color:  #f26a6a;
+  background-color:  #4286f4;
   color: #fefefe;
 }
 
 .activestate{
-  background-color: #54c957;
+  background-color: #4286f4;
   color: white;
 }

@@ -1,5 +1,5 @@
 <?php
-include('sql/sql_loadchurch.php');
+include('sql_loadchurch.php');
 
 include('sql_connection.php');
 
@@ -18,6 +18,3 @@ if (isset($_POST['button_Search'])) {
   $sql = "SELECT * FROM `members`";
   $result_viewmember = mysqli_query($conn, $sql);
 }
-
-
-echo mysqli_num_rows($result);

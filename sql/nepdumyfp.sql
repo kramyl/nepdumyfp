@@ -92,6 +92,7 @@ CREATE TABLE `users` (
   `user_FirstName` varchar(50) NOT NULL,
   `user_MiddleName` varchar(50) DEFAULT NULL,
   `user_LastName` varchar(50) NOT NULL,
+  `user_Suffix` varchar(30) DEFAULT NULL,
   `user_UserName` varchar(30) NOT NULL,
   `user_Password` varchar(200) NOT NULL,
   `user_AccountType` varchar(30) NOT NULL,

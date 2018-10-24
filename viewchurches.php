@@ -36,7 +36,7 @@
           </div>
           <div class="form-group col-md-12">
             <div class="table-responsive">
-              <table class="table table-hover">
+              <table class="table table-hover border-bottom" id="table">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
@@ -61,7 +61,7 @@
                             <td>
                               <a href="/viewchurch.php?token=<?=$row['church_ID']  ?>" class="btn btn-sm Color_Green"><i class="fas fa-eye" style="font-size: 20px; padding-top: 3px;"></i></a>
                               <button type="button" class="btn btn-sm Color_Orange" onclick="ModalReParent(edit<?=$row['church_ID']?>)" data-toggle="modal" data-target="#edit<?=$row['church_ID'] ?>"><i class="fas fa-edit" style="font-size: 20px; padding-top: 3px;"></i></button>
-                              <button type="button" class="btn btn-sm Color_Red" onclick="ModalReParent(delete<?=$row['church_ID']?>)" data-toggle="modal" data-target="#delete<?=$row['church_ID'] ?>"><i class="far fa-times-circle" style="font-size: 20px; padding-top: 3px;"></i></button>
+                              <button type="button" class="btn btn-sm Color_Red" onclick="ModalReParent(delete<?=$row['church_ID']?>)" data-toggle="modal" data-target="#delete<?=$row['church_ID'] ?>"><i class="far fa-trash-alt" style="font-size: 20px; padding-top: 3px;"></i></button>
                             </td>
                           </tr>
                           <!-- Start Edit Modal -->
@@ -69,7 +69,7 @@
                             <div class="modal-dialog" role="document">
                               <div class="modal-content ">
                                 <div class="modal-header Color_Orangex">
-                                  <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+                                  <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-edit"></i> Edit</h5>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true"><i class="far fa-times-circle Color_Orangex"></i></span>
                                   </button>
@@ -91,7 +91,7 @@
                             <div class="modal-dialog" role="document">
                               <div class="modal-content ">
                                 <div class="modal-header Color_Redx">
-                                  <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                                  <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-trash-alt"></i> Delete</h5>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true"><i class="far fa-times-circle Color_Redx"></i></span>
                                   </button>

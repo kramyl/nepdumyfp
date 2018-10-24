@@ -55,7 +55,7 @@
                 <hr>
               </div>
               <div class="form-group col-md-3 mx-auto">
-                <a href="/viewchurches.php" class="btn Color_Red" name="save">Back</a>
+                <a href="/viewchurches.php" class="btn Color_Red" name="save"><i class="fas fa-arrow-left"></i> Back</a>
               </div>
               <div class="form-group col-md-12">
                 <br>

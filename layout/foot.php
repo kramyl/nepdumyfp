@@ -2,6 +2,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/form_validator/jquery.form-validator.js"></script>
 <script src="js/jquery-input-mask-phone-number.js"></script>
+<script type="text/javascript" src="ext/DataTables/datatables.min.js"></script>
 <script type="text/javascript">
   var setupValidation = function() {
     $.validate({
@@ -25,4 +26,11 @@
     function ModalReParent(id){
       $(id).appendTo("body")
     }
+    $(document).ready( function () {
+      $('#table').DataTable({
+        "searching":   false,
+        "lengthMenu": [5, 10, 20, "All"],
+        "pagingType": "full_numbers"
+      });
+    } );
 </script>
