@@ -1,3 +1,9 @@
+<?php
+session_start();
+if ($_SESSION['user_Username'] != "") {
+  header("Location: /viewmembers.php");
+}
+ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -8,7 +14,7 @@
   </head>
   <body>
     <div class="mx-auto container border border-bottom shadow-sm p-3 bg-white rounded">
-      <form class="col-lg-12" width="300px" action="index.html" method="post">
+      <form class="form-group col-lg-12" width="300px" method="post">
         <div class="form-group">
           <div class="float-left">
             <img src="/img/main_logo.png">
@@ -22,15 +28,33 @@
             <br>
           </div>
         </div>
+        <div class="clearfix"></div>
         <div class="form-group">
-          <input type="text" class="form-control"  placeholder="Username">
+          <?php include('sql/sql_login.php'); ?> <!-- sql -->
+          <?php if ($errorMessage != "") {
+            ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" >
+              <label><?=$errorMessage ?></label>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <?php
+            $errorMessage = "";
+          } ?>
         </div>
         <div class="form-group">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="text" class="form-control"  placeholder="Username" name="form_Username" value="<?= $form_Username ?>">
         </div>
-        <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-sign-in-alt"></i> Login</button>
+        <div class="form-group">
+          <input type="password" class="form-control" placeholder="Password" name="form_Password">
+        </div>
+        <button type="submit" class="btn Color_Blue btn-block" name="login"><i class="fas fa-sign-in-alt"></i> Login</button>
         <br>
       </form>
     </div>
   </body>
+  <footer>
+    <?php include('layout/foot.php'); ?>
+  </footer>
 </html>

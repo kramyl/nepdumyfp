@@ -1,3 +1,4 @@
+<?php include('layout/session.php'); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -69,7 +70,17 @@
                 <hr>
               </div>
               <div class="form-group col-md-3 mx-auto">
-                <a href="/viewusers.php" class="btn Color_Red" name="save"><i class="fas fa-arrow-left"></i> Back</a>
+                <?php if ($_SESSION['user_AccountType'] == "Admin") {
+                  ?>
+                    <a href="/viewmembers.php" class="btn Color_Red" name="save"><i class="fas fa-arrow-left"></i> Back</a>
+                  <?php
+                }
+                else {
+                  ?>
+                    <a href="/viewusers.php" class="btn Color_Red" name="save"><i class="fas fa-arrow-left"></i> Back</a>
+                  <?php
+                } ?>
+
               </div>
               <div class="form-group col-md-12">
                 <br>

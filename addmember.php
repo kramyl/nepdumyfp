@@ -1,3 +1,4 @@
+<?php include('layout/session.php'); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

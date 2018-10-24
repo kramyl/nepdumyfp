@@ -33,6 +33,10 @@
   color: #fff;
 }
 
+.Color_Blue:hover{
+  background-color: #3a77d8;
+  color: #fff;
+}
 .Color_Green:hover{
   background-color: #43a045;
   color: #fff;
