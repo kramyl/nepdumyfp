@@ -67,7 +67,13 @@
                             <td>
                               <a href="viewuser.php?token=<?=$row['user_UserName'] ?>" class="btn btn-sm Color_Green"><i class="fas fa-eye" style="font-size: 20px; padding-top: 3px;"></i></a>
                               <button type="button" class="btn btn-sm Color_Orange" onclick="ModalReParent(edit<?=$row['user_ID']?>)" data-toggle="modal" data-target="#edit<?=$row['user_ID'] ?>"><i class="fas fa-edit" style="font-size: 20px; padding-top: 3px;"></i></button>
-                              <button type="button" class="btn btn-sm Color_Red" onclick="ModalReParent(delete<?=$row['user_ID']?>)" data-toggle="modal" data-target="#delete<?=$row['user_ID'] ?>"><i class="far fa-trash-alt" style="font-size: 20px; padding-top: 3px;"></i></button>
+                              <?php
+                                if ($row['user_AccountType'] != "SuperAdmin" && $_SESSION['user_Username']  != $row['user_UserName'] ) {
+                                  ?>
+                                    <button type="button" class="btn btn-sm Color_Red" onclick="ModalReParent(delete<?=$row['user_ID']?>)" data-toggle="modal" data-target="#delete<?=$row['user_ID'] ?>"><i class="far fa-trash-alt" style="font-size: 20px; padding-top: 3px;"></i></button>
+                                  <?php
+                                }
+                               ?>
                             </td>
                           </tr>
                           <!-- Start Edit Modal -->

@@ -126,7 +126,7 @@
           <?php include('sql/sql_loadchurches.php'); ?><!--SQL-->
           <div class="form-group col-md-4">
             <label for="form_Church">Chruch</label>
-            <select id="form_Church" class="form-control" name="form_Church" <?=$isChurchEmpty ?> >
+            <select id="form_Church" class="form-control" name="form_Church" <?php if ($_SESSION['church_ID'] != "0") { echo "disabled"; } else{echo $isChurchEmpty;} ?>>
               <?php
                 if (mysqli_num_rows($result) > 0 && $isChurchEmpty == "") {
                     // output data of each row
@@ -134,9 +134,21 @@
                     <option selected>Select Church</option>
                     <?php
                     while($row = mysqli_fetch_assoc($result)) {
-                      ?>
-                      <option value="<?= $row['church_ID']?>"><?= $row['church_LocalName']?></option>
-                      <?php
+                      if ($_SESSION['church_ID'] == "0") {
+                        // if the current log acccount is super admin display all
+                        ?>
+                        <option value="<?= $row['church_ID']?>"><?= $row['church_LocalName']?></option>
+                        <?php
+                      }else {
+                        if ($_SESSION['church_ID'] == $row['church_ID']) {
+                          // if the current log acccount is admin display his local church
+                          ?>
+                          <option value="<?= $row['church_ID']?>"selected><?= $row['church_LocalName']?></option>
+                          <?php
+                        }
+
+                      }
+
                     }
                 } else {
                     ?>

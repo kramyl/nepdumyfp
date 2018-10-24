@@ -18,6 +18,7 @@ if (isset($_POST['login'])) {
             // code...
             $_SESSION['user_Username'] = $form_Username;
             $_SESSION['user_AccountType'] = $row['user_AccountType'];
+            $_SESSION['church_ID'] = $row['church_ID'];
             header('Location: viewmembers.php');
           }
           else {
