@@ -111,7 +111,17 @@
                   <strong><h7>Finished Confirmation Class: </h7></strong>
                 </div>
                 <div class="col-md-9">
-                  <h7><?=$row['member_FinishedConfirmationClass'] ?></h7>
+                  <?php
+                    if ($row['member_FinishedConfirmationClass'] == "Yes") {
+                      ?>
+                        <h7 class="Color_Greenx" style="padding: 2px 3px;"><?=$row['member_FinishedConfirmationClass'] ?></h7>
+                      <?php
+                    }else {
+                      ?>
+                        <h7 class="Color_Redx" style="padding: 2px 3px;"><?=$row['member_FinishedConfirmationClass'] ?></h7>
+                      <?php
+                    }
+                   ?>
                 </div>
               </div>
               <div class="form-group col-md-12">
