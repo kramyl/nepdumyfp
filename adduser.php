@@ -20,8 +20,22 @@
       <!--Main Contents STARTS HERE -->
       <form class="form_main border-bottom shadow-sm p-3 bg-white rounded" method="post">
         <div class="form-row col-md-11 mx-auto">
+          <?php if ($successMessage != "") {
+            ?>
+            <div class="form-group col-md-12 mx-auto">
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <?=$successMessage ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
+            <?php
+            $successMessage = "";
+          } ?>
           <div class="form-group col-md-12">
-            <br>
+            <a href="/viewusers.php" class="btn btn-sm Color_Red" name="save"><i class="fas fa-arrow-left"></i> Back</a>
+            <hr>
           </div>
           <div class="form-group col-md-12">
             <h5>Account Information</h5>
@@ -102,7 +116,7 @@
             </select>
           </div>
           <div class="form-group col-md-12">
-            <br>
+            <hr>
           </div>
           <div class="form-group col-md-3 mx-auto">
             <button type="submit" class="btn Color_Green" name="save" <?=CheckIfLocalChurchAvailable(); ?>><i class="far fa-save"></i> Save User</button>

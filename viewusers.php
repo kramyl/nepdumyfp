@@ -20,8 +20,22 @@
         <?php include('sql/sql_viewusers.php');?><!-- SQL -->
 
         <div class="form-row col-md-12 mx-auto">
+
           <div class="form-group col-md-12">
             <br>
+            <?php if ($_SESSION['successMessage'] != "") {
+              ?>
+              <div class="form-group col-md-12">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  <?=$_SESSION['successMessage'] ?>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              </div>
+              <?php
+               $_SESSION['successMessage'] = "";
+            } ?>
           </div>
           <div class="form-group col-md-5">
             <label for="form_Search">Search : </label>
@@ -92,7 +106,7 @@
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-light border" data-dismiss="modal">Close</button>
-                                  <a class="btn Color_Orange" href="">Confirm</a>
+                                  <a class="btn Color_Orange" href="updateuser.php?token=<?=$row['user_UserName'] ?>">Confirm</a>
                                 </div>
                               </div>
                             </div>

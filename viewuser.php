@@ -16,7 +16,7 @@
     <?php include('layout/main_layout.php'); ?><!-- Layout Start -->
       <!--Main Contents STARTS HERE -->
       <form class="form_main border-bottom" method="post">
-        <?php $user_Username = $_GET['token'];?>
+
         <?php include('sql/sql_viewuser.php');?><!-- SQL -->
 
         <div class="form-row col-md-10 mx-auto">
@@ -24,9 +24,9 @@
             <br>
           </div>
 
-          <?php if (mysqli_num_rows($result) > 0) {
+          <?php if (mysqli_num_rows($result_viewuser) > 0) {
 
-              while($row = mysqli_fetch_assoc($result)) {
+              while($row = mysqli_fetch_assoc($result_viewuser)) {
                 $user_Suffix = "";
                 if ($row['user_Suffix'] != "") {
                   $user_Suffix = ", " . $row['user_Suffix'];
