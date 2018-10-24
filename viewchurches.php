@@ -59,7 +59,7 @@
                             <td><?=$row['church_LocalName'] ?></td>
                             <td><?=$row['church_Street'] . ", " . $row['church_Barangay'] . " " . $row['church_Town'] . " " .  $row['church_ZipCode']  . ", " . $row['church_Province']  ?></td>
                             <td>
-                              <a href="#" class="btn btn-sm Color_Green"><i class="fas fa-eye" style="font-size: 20px; padding-top: 3px;"></i></a>
+                              <a href="/viewchurch.php?token=<?=$row['church_ID']  ?>" class="btn btn-sm Color_Green"><i class="fas fa-eye" style="font-size: 20px; padding-top: 3px;"></i></a>
                               <button type="button" class="btn btn-sm Color_Orange" onclick="ModalReParent(edit<?=$row['church_ID']?>)" data-toggle="modal" data-target="#edit<?=$row['church_ID'] ?>"><i class="fas fa-edit" style="font-size: 20px; padding-top: 3px;"></i></button>
                               <button type="button" class="btn btn-sm Color_Red" onclick="ModalReParent(delete<?=$row['church_ID']?>)" data-toggle="modal" data-target="#delete<?=$row['church_ID'] ?>"><i class="far fa-times-circle" style="font-size: 20px; padding-top: 3px;"></i></button>
                             </td>

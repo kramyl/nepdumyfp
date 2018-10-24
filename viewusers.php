@@ -64,7 +64,7 @@
                             <td><?=$row['user_LastName'] . ", " . $row['user_FirstName'] . " " . $row['user_MiddleName'] . $user_Suffix ?></td>
                             <td><?= DisplayChurchLocalName($row['church_ID']);?></td>
                             <td>
-                              <a href="#" class="btn btn-sm Color_Green"><i class="fas fa-eye" style="font-size: 20px; padding-top: 3px;"></i></a>
+                              <a href="viewuser.php?token=<?=$row['user_UserName'] ?>" class="btn btn-sm Color_Green"><i class="fas fa-eye" style="font-size: 20px; padding-top: 3px;"></i></a>
                               <button type="button" class="btn btn-sm Color_Orange" onclick="ModalReParent(edit<?=$row['user_ID']?>)" data-toggle="modal" data-target="#edit<?=$row['user_ID'] ?>"><i class="fas fa-edit" style="font-size: 20px; padding-top: 3px;"></i></button>
                               <button type="button" class="btn btn-sm Color_Red" onclick="ModalReParent(delete<?=$row['user_ID']?>)" data-toggle="modal" data-target="#delete<?=$row['user_ID'] ?>"><i class="far fa-times-circle" style="font-size: 20px; padding-top: 3px;"></i></button>
                             </td>
@@ -85,7 +85,7 @@
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-light border" data-dismiss="modal">Close</button>
-                                  <a class="btn Color_Orange" href="#">Confirm</a>
+                                  <a class="btn Color_Orange" href="">Confirm</a>
                                 </div>
                               </div>
                             </div>
