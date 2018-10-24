@@ -63,8 +63,56 @@
                             <td><?=$row['user_UserName'] ?></td>
                             <td><?=$row['user_LastName'] . ", " . $row['user_FirstName'] . " " . $row['user_MiddleName'] . $user_Suffix ?></td>
                             <td><?= DisplayChurchLocalName($row['church_ID']);?></td>
-                            <td></td>
+                            <td>
+                              <a href="#" class="btn btn-sm Color_Green"><i class="fas fa-eye" style="font-size: 20px; padding-top: 3px;"></i></a>
+                              <button type="button" class="btn btn-sm Color_Orange" onclick="ModalReParent(edit<?=$row['user_ID']?>)" data-toggle="modal" data-target="#edit<?=$row['user_ID'] ?>"><i class="fas fa-edit" style="font-size: 20px; padding-top: 3px;"></i></button>
+                              <button type="button" class="btn btn-sm Color_Red" onclick="ModalReParent(delete<?=$row['user_ID']?>)" data-toggle="modal" data-target="#delete<?=$row['user_ID'] ?>"><i class="far fa-times-circle" style="font-size: 20px; padding-top: 3px;"></i></button>
+                            </td>
                           </tr>
+                          <!-- Start Edit Modal -->
+                          <div class="modal fade" id="edit<?=$row['user_ID'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content ">
+                                <div class="modal-header Color_Orangex">
+                                  <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true"><i class="far fa-times-circle Color_Orangex"></i></span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <h6><strong><?=$row['user_UserName'] ?></strong></h6>
+                                  Do you want to edit this User?
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-light border" data-dismiss="modal">Close</button>
+                                  <a class="btn Color_Orange" href="#">Confirm</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Edit Modal -->
+                          <!-- Start Delete Modal -->
+                          <div class="modal fade" id="delete<?=$row['user_ID'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content ">
+                                <div class="modal-header Color_Redx">
+                                  <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true"><i class="far fa-times-circle Color_Redx"></i></span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <h6><strong><?=$row['user_UserName'] ?></strong></h6>
+                                  Do you want to delete this User?
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-light border" data-dismiss="modal">Close</button>
+                                  <a class="btn Color_Red" href="sql/sql_deleteuser.php?token=<?=$row['user_UserName'] ?>">Confirm</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Delete Modal -->
                           <?php
                         }
                     } else {
@@ -86,4 +134,7 @@
     <?php include('layout/naviagation_mainbarend.php'); ?><!-- Layout End -->
 
   </body>
+  <footer>
+    <?php include('layout/foot.php'); ?>
+  </footer>
 </html>

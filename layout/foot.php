@@ -22,4 +22,7 @@
             format: 'xxx-xxx-xxxx',
         });
     });
+    function ModalReParent(id){
+      $(id).appendTo("body")
+    }
 </script>

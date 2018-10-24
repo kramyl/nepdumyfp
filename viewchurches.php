@@ -58,8 +58,56 @@
                             <td><?=$record_Number ?></td>
                             <td><?=$row['church_LocalName'] ?></td>
                             <td><?=$row['church_Street'] . ", " . $row['church_Barangay'] . " " . $row['church_Town'] . " " .  $row['church_ZipCode']  . ", " . $row['church_Province']  ?></td>
-                            <td></td>
+                            <td>
+                              <a href="#" class="btn btn-sm Color_Green"><i class="fas fa-eye" style="font-size: 20px; padding-top: 3px;"></i></a>
+                              <button type="button" class="btn btn-sm Color_Orange" onclick="ModalReParent(edit<?=$row['church_ID']?>)" data-toggle="modal" data-target="#edit<?=$row['church_ID'] ?>"><i class="fas fa-edit" style="font-size: 20px; padding-top: 3px;"></i></button>
+                              <button type="button" class="btn btn-sm Color_Red" onclick="ModalReParent(delete<?=$row['church_ID']?>)" data-toggle="modal" data-target="#delete<?=$row['church_ID'] ?>"><i class="far fa-times-circle" style="font-size: 20px; padding-top: 3px;"></i></button>
+                            </td>
                           </tr>
+                          <!-- Start Edit Modal -->
+                          <div class="modal fade" id="edit<?=$row['church_ID'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content ">
+                                <div class="modal-header Color_Orangex">
+                                  <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true"><i class="far fa-times-circle Color_Orangex"></i></span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <h6><strong><?=$row['church_LocalName'] ?></strong></h6>
+                                  Do you want to edit this Local Church?
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-light border" data-dismiss="modal">Close</button>
+                                  <a class="btn Color_Orange" href="#">Confirm</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Edit Modal -->
+                          <!-- Start Delete Modal -->
+                          <div class="modal fade" id="delete<?=$row['church_ID'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content ">
+                                <div class="modal-header Color_Redx">
+                                  <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true"><i class="far fa-times-circle Color_Redx"></i></span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <h6><strong><?=$row['church_LocalName'] ?></strong></h6>
+                                  Do you want to delete this Local Church?
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-light border" data-dismiss="modal">Close</button>
+                                  <a class="btn Color_Red" href="sql/sql_deletechurch.php?token=<?=$row['church_ID'] ?>">Confirm</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Delete Modal -->
                           <?php
                         }
                     } else {
@@ -81,4 +129,7 @@
     <?php include('layout/naviagation_mainbarend.php'); ?><!-- Layout End -->
 
   </body>
+  <footer>
+    <?php include('layout/foot.php'); ?>
+  </footer>
 </html>

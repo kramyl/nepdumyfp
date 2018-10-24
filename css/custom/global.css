@@ -14,6 +14,21 @@
   color: #fff;
 }
 
+.Color_Orange{
+  background-color: #ffb049;
+  color: #fff;
+}
+
+.Color_Orangex{
+  background-color: #ffb049;
+  color: #fff;
+}
+
+.Color_Redx{
+  background-color: #f26a6a;
+  color: #fff;
+}
+
 .Color_Green:hover{
   background-color: #43a045;
   color: #fff;
@@ -22,4 +37,12 @@
 .Color_Red:hover{
   background-color: #db5959;
   color: #fff;
+}
+
+.Color_Orange:hover{
+  background-color: #c98c3c;
+  color: #fff;
+}
+.modal {
+  z-index: 1071;
 }
