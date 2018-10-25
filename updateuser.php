@@ -7,11 +7,24 @@
     <?php include('layout/head.php'); ?>
   </head>
   <body>
-    <!-- Page Title -->
-    <?php $page_title = '<h4 class="main_title_text"><i class="fas fa-edit"></i> Update Users</span></h4>'; ?>
-
-    <!-- Sidebar selected -->
-    <?php $page_current = 'users'; ?>
+    <?php
+      if (isset($_GET['frmeliforp'])) {
+        //Page Title
+        $page_title = '<h4 class="main_title_text"><i class="fas fa-eye"></i> Update My Account</span></h4>';
+        //Sidebar selected
+        if ($_SESSION['user_AccountType'] == "SuperAdmin") {
+          // code...
+          $page_current = 'users';
+        }else {
+          $page_current = 'members';
+        }
+      }else {
+        //Page Title
+        $page_title = '<h4 class="main_title_text"><i class="fas fa-eye"></i> Update User</span></h4>';
+        //Sidebar selected
+        $page_current = 'users';
+      }
+     ?>
 
     <?php include('layout/main_layout.php'); ?><!-- Layout Start -->
 

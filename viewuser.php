@@ -7,11 +7,25 @@
     <?php include('layout/head.php'); ?>
   </head>
   <body>
-    <!-- Page Title -->
-    <?php $page_title = '<h4 class="main_title_text"><i class="fas fa-eye"></i> View User</span></h4>'; ?>
 
-    <!-- Sidebar selected -->
-    <?php $page_current = 'users'; ?>
+    <?php
+      if (isset($_GET['frmeliforp'])) {
+        //Page Title
+        $page_title = '<h4 class="main_title_text"><i class="fas fa-eye"></i> My Account</span></h4>';
+        //Sidebar selected
+        if ($_SESSION['user_AccountType'] == "SuperAdmin") {
+          // code...
+          $page_current = 'users';
+        }else {
+          $page_current = 'members';
+        }
+      }else {
+        //Page Title
+        $page_title = '<h4 class="main_title_text"><i class="fas fa-eye"></i> View User</span></h4>';
+        //Sidebar selected
+        $page_current = 'users';
+      }
+     ?>
 
     <?php include('layout/main_layout.php'); ?><!-- Layout Start -->
       <!--Main Contents STARTS HERE -->
@@ -74,11 +88,21 @@
                   ?>
                     <a href="/viewmembers.php" class="btn Color_Red" name="save"><i class="fas fa-arrow-left"></i> Back</a>
                   <?php
+                  if (isset($_GET['frmeliforp'])) {
+                    ?>
+                    <a class="btn Color_Orange" href="updateuser.php?token=<?=$row['user_UserName'] ?>&frmeliforp=ZX0-33FFGX"><i class="fas fa-edit"></i> Update</a>
+                    <?php
+                  }
                 }
                 else {
                   ?>
                     <a href="/viewusers.php" class="btn Color_Red" name="save"><i class="fas fa-arrow-left"></i> Back</a>
                   <?php
+                  if (isset($_GET['frmeliforp'])) {
+                    ?>
+                    <a class="btn Color_Orange" href="updateuser.php?token=<?=$row['user_UserName'] ?>&frmeliforp=ZX0-33FFGX"><i class="fas fa-edit"></i> Update</a>
+                    <?php
+                  }
                 } ?>
 
               </div>
