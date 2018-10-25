@@ -6,9 +6,12 @@ if (!isset($_SESSION['user_Username'])) {
   $_SESSION['church_ID'] = "";
   $_SESSION['successMessage']= "";
 }
-if ($_SESSION['user_Username'] != "") {
-  header("Location: /viewmembers.php");
+if (!isset($_POST['login'])) {
+  if ($_SESSION['user_Username'] != "") {
+    header("Location: /viewmembers.php");
+  }
 }
+
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
