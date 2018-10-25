@@ -25,7 +25,7 @@
         <div class="form-row col-md-11 mx-auto">
           <?php if ($successMessage != "") {
             ?>
-            <div class="form-group col-md-12 mx-auto">
+            <div class="form-group col-md-5"  style="position: absolute; top: 0; right: 0;">
               <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <?=$successMessage ?>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -36,9 +36,8 @@
             <?php
             $successMessage = "";
           } ?>
-
           <div class="form-group col-md-12">
-            <a href="/viewusers.php" class="btn btn-sm Color_Red" name="save"><i class="fas fa-arrow-left"></i> Back</a>
+            <a href="/viewusers.php" class="btn Color_Red" name="save"><i class="fas fa-arrow-left"></i> Back</a>
             <hr>
           </div>
           <?php

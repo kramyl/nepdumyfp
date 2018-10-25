@@ -20,12 +20,10 @@
         <?php include('sql/sql_viewusers.php');?><!-- SQL -->
 
         <div class="form-row col-md-12 mx-auto">
-
           <div class="form-group col-md-12">
-            <br>
             <?php if ($_SESSION['successMessage'] != "") {
               ?>
-              <div class="form-group col-md-12">
+              <div class="form-group col-md-5"  style="position: absolute; top: 10px; right: 0;">
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                   <?=$_SESSION['successMessage'] ?>
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -45,9 +43,6 @@
               <button type="submit" class="btn btn-light border" name="button_Search"> <i class="fas fa-search"></i> Search</button>
               <button type="submit" class="btn Color_Red border" name="button_Clear">Clear Searched</button>
             </div>
-          </div>
-          <div class="form-group col-md-12">
-            <br>
           </div>
           <div class="form-group col-md-12">
             <div class="table-responsive">

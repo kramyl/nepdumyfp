@@ -16,7 +16,6 @@
     <?php include('layout/main_layout.php'); ?><!-- Layout Start -->
       <!--Main Contents STARTS HERE -->
       <form class="form_main border-bottom" method="post">
-        <?php $church_ID = $_GET['token'];?>
         <?php include('sql/sql_viewchurch.php');?><!-- SQL -->
 
         <div class="form-row col-md-10 mx-auto">

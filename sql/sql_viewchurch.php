@@ -1,6 +1,6 @@
 <?php
-include('sql/sql_loadchurch.php');
 include('sql_connection.php');
 
-$sql = "SELECT * FROM `churches` WHERE `church_ID` = '$church_ID'";
+$church_LocalName = $_GET['token'];
+$sql = "SELECT * FROM `churches` WHERE `church_LocalName` = '$church_LocalName'";
 $result = mysqli_query($conn, $sql);

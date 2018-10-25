@@ -29,7 +29,7 @@
     $(document).ready( function () {
       $('#table').DataTable({
         "searching":   false,
-        "lengthMenu": [5, 10, 20, "All"],
+        "lengthMenu": [5, 10],
         "pagingType": "full_numbers"
       });
     } );

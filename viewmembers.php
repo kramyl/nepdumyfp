@@ -21,7 +21,19 @@
 
         <div class="form-row col-md-12 mx-auto">
           <div class="form-group col-md-12">
-            <br>
+            <?php if ($_SESSION['successMessage'] != "") {
+              ?>
+              <div class="form-group col-md-5"  style="position: absolute; top: 10px; right: 0;">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  <?=$_SESSION['successMessage'] ?>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              </div>
+              <?php
+               $_SESSION['successMessage'] = "";
+            } ?>
           </div>
           <?php include('sql/sql_loadchurches.php'); ?><!--SQL-->
           <div class="form-group col-md-2">
@@ -57,9 +69,6 @@
             </div>
           </div>
           <div class="form-group col-md-12">
-            <br>
-          </div>
-          <div class="form-group col-md-12">
             <div class="table-responsive">
               <table class="table table-hover border-bottom" id="table">
                 <thead>
@@ -67,9 +76,9 @@
                     <th scope="col">#</th>
                     <th scope="col">Full Name</th>
                     <th scope="col">Address</th>
-                    <th scope="col">Email Address</th>
                     <th scope="col">Contact No.</th>
                     <th scope="col">Church</th>
+                    <th scope="col">FCC</th>
                     <th scope="col">Controls</th>
                   </tr>
                 </thead>
@@ -88,10 +97,20 @@
                           <tr>
                             <td><?=$record_Number ?></td>
                             <td><?=$row['member_LastName'] . ", " . $row['member_FirstName'] . " " . $row['member_MiddleName'] . $member_Suffix ?></td>
-                            <td><?=$row['member_HouseNo'] . " " . $row['member_Street'] . ", " . $row['member_Barangay'] . " " . $row['member_Town'] . ", " . $row['member_Province']  ?></td>
                             <td><?=$row['member_EmailAddress'] ?></td>
                             <td><?=$row['member_ContactNo'] ?></td>
                             <td><?= DisplayChurchLocalName($row['church_ID']);?></td>
+                            <?php
+                              if ($row['member_FinishedConfirmationClass'] == "Yes") {
+                                ?>
+                                <td><h7 class="Color_Greenx rounded" style="padding: 2px 3px;"><?=$row['member_FinishedConfirmationClass'] ?></h7></td>
+                                <?php
+                              }else {
+                                ?>
+                                  <td><h7 class="Color_Redx rounded" style="padding: 2px 3.5px;"><?=$row['member_FinishedConfirmationClass'] ?></h7></td>
+                                <?php
+                              }
+                             ?>
                             <td>
                               <a href="/viewmember.php?token=<?=$row['member_ID']?>" class="btn btn-sm Color_Green"><i class="fas fa-eye" style="font-size: 20px; padding-top: 3px;"></i></a>
                               <?php
@@ -128,7 +147,7 @@
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-light border" data-dismiss="modal">Close</button>
-                                  <a class="btn Color_Orange" href="#">Confirm</a>
+                                  <a class="btn Color_Orange" href="updatemember.php?token=<?=$row['member_ID'] ?>">Confirm</a>
                                 </div>
                               </div>
                             </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2018 at 04:35 PM
+-- Generation Time: Oct 25, 2018 at 04:49 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -45,7 +45,9 @@ CREATE TABLE `churches` (
 INSERT INTO `churches` (`church_ID`, `church_LocalName`, `church_Street`, `church_Barangay`, `church_Town`, `church_Province`, `church_ZipCode`) VALUES
 (1, 'Pozorrubio', 'Penoy Street', 'District 1', 'Pozorrubio', 'Pangasinan', '2435'),
 (3, 'Villasis', 'Jenkins Street', 'Pozorrubio', 'Pozorrubio', 'Pangasinan', '2435'),
-(4, 'Urdaneta', 'Jenkins Street', 'Pozorrubio', 'Pozorrubio', 'Pangasinan', '2435');
+(4, 'Urdaneta', 'Ass', '124', 'Urdaneta City', 'Pangasinans', '1233'),
+(5, 'Haha', 'Jenkins Street', 'Pozorrubio', 'Pozorrubio', 'Pangasinan', '2435'),
+(6, 'Asd', 'Jenkins Street', 'Pozorrubio', 'Pozorrubio', 'Pangasinan', '2435');
 
 -- --------------------------------------------------------
 
@@ -78,8 +80,10 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`member_ID`, `member_FirstName`, `member_MiddleName`, `member_LastName`, `member_Suffix`, `member_Gender`, `member_BirthDate`, `member_Age`, `member_HouseNo`, `member_Street`, `member_Barangay`, `member_Town`, `member_Province`, `member_ContactNo`, `member_EmailAddress`, `member_FinishedConfirmationClass`, `church_ID`) VALUES
-(1, '', NULL, '', NULL, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0),
-(2, 'Raymark', 'Chan', 'Bornales', '', 'Male', '1996-11-23', '21', '#116', 'Jenkins Street', 'Pozorrubio', 'Pozorrubio', 'Pangasinan', '09266578978', 'kramyl333@gmail.com', 'Yes', 1);
+(2, 'Raymark', 'Chan', 'Bornales', '', 'Male', '1996-11-23', '21', '#116', 'Jenkins Street', 'Pozorrubio', 'Pozorrubio', 'Pangasinan', '09266578978', 'kramyl333@gmail.com', 'Yes', 1),
+(3, 'Pj', 'Castro', 'Castillo', '78th', 'Female', '2018-01-01', '22', '#112', 'Ma. St.', 'Zone 2', 'Villasis', 'Pangasinans', '09020235010', 'aquawalker@gmail.com', 'Yes', 4),
+(4, 'Asda', 'Sdds', 'Sdfds', 'Sdfsdf', 'Male', '2018-10-01', '2018-10-01', '13', 'Asd', 'Ad', 'Adasdad', 'Asdsadsa', '09266578978', 'kramyl12333@gmail.com', 'Yes', 4),
+(5, 'Raymark', 'Chan', 'Bornales', '', 'Female', '2018-10-10', '213', '2', 'Jenkins Street', 'Pozorrubio', 'Pozorrubio', 'Pangasinan', '09266578978', 'kramyl333@gmail.com', 'Yes', 3);
 
 -- --------------------------------------------------------
 
@@ -103,8 +107,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_ID`, `user_FirstName`, `user_MiddleName`, `user_LastName`, `user_UserName`, `user_Password`, `user_AccountType`, `church_ID`) VALUES
-(1, 'Raymark', 'Chan', 'Bornales', 'kramyl', 'lymark', 'Admin', 1);
+INSERT INTO `users` (`user_ID`, `user_FirstName`, `user_MiddleName`, `user_LastName`, `user_Suffix`, `user_UserName`, `user_Password`, `user_AccountType`, `church_ID`) VALUES
+(1, 'Raymark', 'Chan', 'Bornales', 'II', 'superadmin', 'lymark0623', 'SuperAdmin', 0),
+(3, 'Raymarks', 'Chan', 'Bornales', '', 'kramyl603', 'lymark', 'Admin', 3),
+(4, 'PJ', 'Castillo', 'Castro', '213', 'philcaster', 'caster', 'Admin', 1),
+(5, 'David', 'David', 'David', '', 'david', 'kramyl', 'Admin', 4);
 
 --
 -- Indexes for dumped tables
@@ -138,19 +145,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `churches`
 --
 ALTER TABLE `churches`
-  MODIFY `church_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `church_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `member_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `member_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

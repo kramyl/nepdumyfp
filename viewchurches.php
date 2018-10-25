@@ -20,8 +20,20 @@
         <?php include('sql/sql_viewchurches.php');?><!-- SQL -->
 
         <div class="form-row col-md-12 mx-auto">
-          <div class="form-group col-md-12">
-            <br>
+          <div class="form-group col-md-12 mx-auto">
+            <?php if ($_SESSION['successMessage'] != "") {
+              ?>
+              <div class="form-group col-md-5" style="position: absolute; top: 10px; right: 0;">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  <?=$_SESSION['successMessage'] ?>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              </div>
+              <?php
+               $_SESSION['successMessage'] = "";
+            } ?>
           </div>
           <div class="form-group col-md-5">
             <label for="form_Search">Search : </label>
@@ -31,9 +43,6 @@
               <button type="submit" class="btn btn-light border" name="button_Search"> <i class="fas fa-search"></i> Search</button>
               <button type="submit" class="btn Color_Red border" name="button_Clear">Clear Searched</button>
             </div>
-          </div>
-          <div class="form-group col-md-12">
-            <br>
           </div>
           <div class="form-group col-md-12">
             <div class="table-responsive">
@@ -60,7 +69,7 @@
                             <td><?=$row['church_LocalName'] ?></td>
                             <td><?=$row['church_Street'] . ", " . $row['church_Barangay'] . " " . $row['church_Town'] . " " .  $row['church_ZipCode']  . ", " . $row['church_Province']  ?></td>
                             <td>
-                              <a href="/viewchurch.php?token=<?=$row['church_ID']  ?>" class="btn btn-sm Color_Green"><i class="fas fa-eye" style="font-size: 20px; padding-top: 3px;"></i></a>
+                              <a href="/viewchurch.php?token=<?=$row['church_LocalName']  ?>" class="btn btn-sm Color_Green"><i class="fas fa-eye" style="font-size: 20px; padding-top: 3px;"></i></a>
                               <button type="button" class="btn btn-sm Color_Orange" onclick="ModalReParent(edit<?=$row['church_ID']?>)" data-toggle="modal" data-target="#edit<?=$row['church_ID'] ?>"><i class="fas fa-edit" style="font-size: 20px; padding-top: 3px;"></i></button>
                               <button type="button" class="btn btn-sm Color_Red" onclick="ModalReParent(delete<?=$row['church_ID']?>)" data-toggle="modal" data-target="#delete<?=$row['church_ID'] ?>"><i class="far fa-trash-alt" style="font-size: 20px; padding-top: 3px;"></i></button>
                             </td>
@@ -81,7 +90,7 @@
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-light border" data-dismiss="modal">Close</button>
-                                  <a class="btn Color_Orange" href="#">Confirm</a>
+                                  <a class="btn Color_Orange" href="updatechurch.php?token=<?=$row["church_LocalName"] ?>">Confirm</a>
                                 </div>
                               </div>
                             </div>
@@ -103,7 +112,7 @@
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-light border" data-dismiss="modal">Close</button>
-                                  <a class="btn Color_Red" href="sql/sql_deletechurch.php?token=<?=$row['church_ID'] ?>">Confirm</a>
+                                  <a class="btn Color_Red" href="sql/sql_deletechurch.php?token=<?=$row['church_LocalName'] ?>">Confirm</a>
                                 </div>
                               </div>
                             </div>
