@@ -1,7 +1,6 @@
 <?php
 include('sql_connection.php');
 $form_Username = "";
-
 $errorMessage = "";
 if (isset($_POST['login'])) {
 
@@ -15,11 +14,12 @@ if (isset($_POST['login'])) {
       if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)){
           if ($row['user_Password'] == $form_Password) {
-            // code...
             $_SESSION['user_Username'] = $form_Username;
             $_SESSION['user_AccountType'] = $row['user_AccountType'];
             $_SESSION['church_ID'] = $row['church_ID'];
-            header('Location: viewmembers.php');
+            $_SESSION['logged'] = "1";
+            header('Location: /viewmembers.php');
+            break;
           }
           else {
             $errorMessage = "Wrong password.";

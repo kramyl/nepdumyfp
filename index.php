@@ -5,14 +5,14 @@ if (!isset($_SESSION['user_Username'])) {
   $_SESSION['user_AccountType'] = "";
   $_SESSION['church_ID'] = "";
   $_SESSION['successMessage']= "";
-}
-if (!isset($_POST['login'])) {
-  if ($_SESSION['user_Username'] != "") {
-    header("Location: /viewmembers.php");
-  }
+  $_SESSION['logged'] = "0";
 }
 
- ?>
+if ($_SESSION['user_Username'] != "" && $_SESSION['logged'] == "0") {
+  header("Location: /viewmembers.php");
+}
+include('sql/sql_login.php');
+?> <!-- sql -->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

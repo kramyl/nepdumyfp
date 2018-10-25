@@ -78,7 +78,7 @@
                     <th scope="col">Address</th>
                     <th scope="col">Contact No.</th>
                     <th scope="col">Church</th>
-                    <th scope="col">FCC</th>
+                    <th scope="col">Confirmed</th>
                     <th scope="col">Controls</th>
                   </tr>
                 </thead>
