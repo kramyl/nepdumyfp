@@ -75,7 +75,7 @@
           </div>
           <div class="form-group col-md-2">
             <label for="form_Birthday">Birthday</label>
-            <input type="date" class="form-control" id="form_Birthday" name="form_Birthday" placeholder="" data-validation="required">
+            <input type="date" class="form-control" id="form_Birthday" onchange="calculateDate(this)" name="form_Birthday" placeholder="" data-validation="required">
           </div>
           <div class="form-group col-md-1">
             <label for="form_Age">Age</label>
