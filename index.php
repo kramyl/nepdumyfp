@@ -22,7 +22,7 @@ include('sql/sql_login.php');
     <link rel="stylesheet" href="/css/custom/login.css">
   </head>
   <body>
-    <div class="mx-auto container border border-bottom shadow-sm p-3 bg-white rounded">
+    <div class="mx-auto container border border-bottom shadow-lg p-3 bg-white rounded">
       <form class="form-group col-lg-12" width="300px" method="post">
         <div class="form-group">
           <div class="float-left">
