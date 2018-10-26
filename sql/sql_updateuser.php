@@ -29,7 +29,7 @@ if (isset($_POST['update'])) {
 
 
   if (mysqli_query($conn, $sql)) {
-      $successMessage = "User [" . $form_Username . "] was succesfully updated.";
+      $_SESSION['successMessage'] = "User [" . $form_Username . "] was succesfully updated.";
   } else {
       //echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }

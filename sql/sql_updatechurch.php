@@ -18,7 +18,7 @@ if (isset($_POST['save'])) {
   WHERE `church_LocalName` = '$form_ChurchName';";
 
   if (mysqli_query($conn, $sql)) {
-      $successMessage = "Local Church [" . $form_ChurchName . "] was succesfully updated.";
+      $_SESSION['successMessage'] = "Local Church [" . $form_ChurchName . "] was succesfully updated.";
   } else {
       //echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }

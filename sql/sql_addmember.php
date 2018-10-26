@@ -27,7 +27,7 @@ if (isset($_POST['save'])) {
           ('$form_FirstName', '$form_MiddleName', '$form_LastName', '$form_Suffix', '$form_Gender', '$form_Birthday', '$form_Age', '$form_HouseNo', '$form_Street', '$form_Barangay', '$form_Town', '$form_Province', '$form_ContactNumber', '$form_EmailAddress', '$form_FinishedConfirmationClass', '$form_Church');";
 
   if (mysqli_query($conn, $sql)) {
-      $successMessage = "Member [" . $form_FirstName . " " . $form_MiddleName . " " . $form_LastName . " " . $form_Suffix . "] was succesfully created.";
+      $_SESSION['successMessage'] = "Member [" . $form_FirstName . " " . $form_MiddleName . " " . $form_LastName . " " . $form_Suffix . "] was succesfully created.";
   } else {
       echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }

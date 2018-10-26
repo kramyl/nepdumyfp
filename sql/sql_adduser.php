@@ -15,7 +15,7 @@ if (isset($_POST['save'])) {
           VALUES ('$form_FirstName', '$form_MiddleName', '$form_LastName', '$form_Suffix', '$form_Username', '$form_Password', '$form_AccountType', '$form_Church');";
 
   if (mysqli_query($conn, $sql)) {
-      $successMessage = "User [" . $form_Username . "] was succesfully created.";
+      $_SESSION['successMessage'] = "User [" . $form_Username . "] was succesfully created.";
   } else {
       //echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }

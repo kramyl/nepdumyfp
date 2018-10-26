@@ -42,7 +42,7 @@ if (isset($_POST['save'])) {
   WHERE `member_ID` = '$member_ID';";
 
   if (mysqli_query($conn, $sql)) {
-      $successMessage = "Member [" . $form_FirstName . " " . $form_MiddleName . " " . $form_LastName . " " . $form_Suffix . "] was succesfully updated.";
+      $_SESSION['successMessage'] = "Member [" . $form_FirstName . " " . $form_MiddleName . " " . $form_LastName . " " . $form_Suffix . "] was succesfully updated.";
   } else {
       echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }

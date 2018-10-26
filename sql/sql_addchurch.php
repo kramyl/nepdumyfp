@@ -13,7 +13,7 @@ if (isset($_POST['save'])) {
           VALUES ('$form_ChurchName', '$form_Street', '$form_Barangay', '$form_Town', '$form_Province', '$form_ZipCode');";
 
   if (mysqli_query($conn, $sql)) {
-      $successMessage = "Local Church [" . $form_ChurchName . "] was succesfully created.";
+      $_SESSION['successMessage'] = "Local Church [" . $form_ChurchName . "] was succesfully created.";
   } else {
       //echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
