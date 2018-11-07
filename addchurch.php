@@ -35,6 +35,10 @@
             <label for="form_ChurchName">Church Local Name</label>
             <input type="text" class="form-control" id="form_ChurchName" name="form_ChurchName" placeholder="ex: Urdaneta" data-sanitize="capitalize" data-validation="required custom" data-validation-regexp="^([a-zA-Z ]+)$" data-validation-error-msg-custom="This field contains characters and spaces only.">
           </div>
+          <div class="form-group col-md-6">
+            <label for="form_LocalPastor">Local Pastor</label>
+            <input type="text" class="form-control" id="form_LocalPastor" name="form_LocalPastor" placeholder="ex: Rev. David Briones" data-sanitize="capitalize" data-validation="required custom" data-validation-regexp="^([a-zA-Z .]+)$" data-validation-error-msg-custom="This field contains characters dot and spaces only.">
+          </div>
           <div class="form-group col-md-12">
             <br>
           </div>

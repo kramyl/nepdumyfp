@@ -39,7 +39,8 @@
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Church Local Name</th>
-                    <th scope="col">Full Address</th>
+                    <th scope="col">Local Pastor</th>
+                    <!--<th scope="col">Full Address</th>-->
                     <th scope="col">Controls</th>
                   </tr>
                 </thead>
@@ -55,7 +56,8 @@
                           <tr>
                             <td><?=$record_Number ?></td>
                             <td><?=$row['church_LocalName'] ?></td>
-                            <td><?=$row['church_Street'] . ", " . $row['church_Barangay'] . " " . $row['church_Town'] . " " .  $row['church_ZipCode']  . ", " . $row['church_Province']  ?></td>
+                            <td><?=$row['church_LocalPastor']?></td>
+                            <!--<td><?=$row['church_Street'] . ", " . $row['church_Barangay'] . " " . $row['church_Town'] . " " .  $row['church_ZipCode']  . ", " . $row['church_Province']  ?></td>-->
                             <td>
                               <a href="/viewchurch.php?token=<?=$row['church_LocalName']  ?>" class="btn btn-sm Color_Green"><i class="fas fa-eye" style="font-size: 20px; padding-top: 3px;"></i></a>
                               <button type="button" class="btn btn-sm Color_Orange" onclick="ModalReParent(edit<?=$row['church_ID']?>)" data-toggle="modal" data-target="#edit<?=$row['church_ID'] ?>"><i class="fas fa-edit" style="font-size: 20px; padding-top: 3px;"></i></button>

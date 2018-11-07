@@ -27,7 +27,7 @@
   $(document).ready( function () {
     $('#table').DataTable({
       "searching":   false,
-      "lengthMenu": [5, 10],
+      "lengthMenu": [25, 50],
       "pagingType": "full_numbers"
     });
   } );

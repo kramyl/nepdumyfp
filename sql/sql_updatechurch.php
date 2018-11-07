@@ -8,13 +8,15 @@ if (isset($_POST['save'])) {
   $form_Town = $_POST['form_Town'];
   $form_Province = $_POST['form_Province'];
   $form_ZipCode = $_POST['form_ZipCode'];
+  $form_LocalPastor = $_POST['form_LocalPastor'];
 
   $sql = "UPDATE `churches` SET
   `church_Street` = '$form_Street',
   `church_Barangay` = '$form_Barangay',
   `church_Town` = '$form_Town',
   `church_Province` = '$form_Province',
-  `church_ZipCode` = '$form_ZipCode'
+  `church_ZipCode` = '$form_ZipCode',
+  `church_LocalPastor` = '$form_LocalPastor'
   WHERE `church_LocalName` = '$form_ChurchName';";
 
   if (mysqli_query($conn, $sql)) {
@@ -22,6 +24,5 @@ if (isset($_POST['save'])) {
   } else {
       //echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
-
   mysqli_close($conn);
 }
