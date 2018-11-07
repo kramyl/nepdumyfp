@@ -35,9 +35,13 @@
             <label for="form_ChurchName">Church Local Name</label>
             <input type="text" class="form-control" id="form_ChurchName" name="form_ChurchName" placeholder="ex: Urdaneta" data-sanitize="capitalize" data-validation="required custom" data-validation-regexp="^([a-zA-Z ]+)$" data-validation-error-msg-custom="This field contains characters and spaces only.">
           </div>
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-5">
             <label for="form_LocalPastor">Local Pastor</label>
-            <input type="text" class="form-control" id="form_LocalPastor" name="form_LocalPastor" placeholder="ex: Rev. David Briones" data-sanitize="capitalize" data-validation="required custom" data-validation-regexp="^([a-zA-Z .]+)$" data-validation-error-msg-custom="This field contains characters dot and spaces only.">
+            <input type="text" class="form-control" id="form_LocalPastor" name="form_LocalPastor" placeholder="ex: Full Name" data-sanitize="capitalize" data-validation="required custom" data-validation-regexp="^([a-zA-Z .]+)$" data-validation-error-msg-custom="This field contains characters dot and spaces only.">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="form_ContactNumber">Contact Number </label>
+            <input type="text" class="form-control" id="form_ContactNumber" name="form_ContactNumber" placeholder="ex: 9123456789" data-validation="number length" data-validation-error-msg-number="This field contains numbers only." data-validation-length="min10" data-validation-error-msg-length="This field contains 10 characters.">
           </div>
           <div class="form-group col-md-12">
             <br>

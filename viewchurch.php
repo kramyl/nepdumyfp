@@ -53,6 +53,16 @@
               </div>
               <div class="form-inline col-md-12">
                 <div class="col-md-3">
+                  <strong><h7>Contact Number: </h7></strong>
+                </div>
+                <div class="col-md-9">
+                  <h7><?=$row['church_ContactNumber'] ?></h7>
+                </div>
+              </div>
+              <div class="form-group col-md-12">
+              </div>
+              <div class="form-inline col-md-12">
+                <div class="col-md-3">
                   <strong><h7>Full Address: </h7></strong>
                 </div>
                 <div class="col-md-9">
